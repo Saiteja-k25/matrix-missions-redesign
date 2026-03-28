@@ -1,0 +1,298 @@
+/* =============================================
+   MATRIX MISSIONS - Mobile Performance Optimizations
+   Reduced complexity for smooth mobile experience
+   ============================================= */
+
+/* ========== Mobile Animation Overrides ========== */
+@media (max-width: 767px) {
+
+    /* Disable heavy blur effects */
+    .hero-gradient-orb {
+        filter: blur(60px);
+        /* Reduced from 100px */
+        opacity: 0.6;
+    }
+
+    .hero-gradient-mesh {
+        animation: none;
+        /* Disable mesh animation */
+        opacity: 0.8;
+    }
+
+    /* Hide decorative shapes on mobile */
+    .hero-shape,
+    .hero-depth-layer,
+    .hero-particles,
+    .hero-grid {
+        display: none !important;
+    }
+
+    /* Simplify footer orbs */
+    .footer-orb {
+        filter: blur(40px);
+        opacity: 0.3;
+        animation: none;
+    }
+
+    /* Reduce vignette complexity */
+    .hero-vignette {
+        background: radial-gradient(ellipse 80% 70% at center, transparent 0%, rgba(5, 5, 8, 0.5) 100%);
+    }
+
+    /* Disable noise texture (saves GPU) */
+    .hero-noise {
+        display: none;
+    }
+
+    /* Force visibility of scroll animations on mobile to prevent white space if JS delayed */
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .animate-fade-in-down {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* ========== Touch-Friendly Buttons ========== */
+    .btn {
+        min-height: 52px;
+        padding: var(--space-4) var(--space-8);
+        font-size: var(--text-base);
+    }
+
+    .btn-lg {
+        padding: var(--space-5) var(--space-10);
+        min-height: 56px;
+    }
+
+    .btn-sm {
+        min-height: 44px;
+        padding: var(--space-3) var(--space-5);
+    }
+
+    /* ========== Readable Text ========== */
+    body {
+        font-size: 16px;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .hero-subtitle,
+    .section-subtitle,
+    .card-description,
+    .service-description {
+        font-size: var(--text-base);
+        line-height: 1.7;
+    }
+
+    /* ========== Simplified Micro-Interactions ========== */
+    .service-card:hover,
+    .trust-card:hover,
+    .card:hover {
+        transform: translateY(-3px);
+        /* Reduced from 6px */
+    }
+
+    /* Remove 3D effects on mobile */
+    .service-card,
+    .trust-card {
+        transform-style: flat;
+        perspective: none;
+    }
+
+    /* ========== Touch Targets ========== */
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-link-premium {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: var(--space-2) 0;
+    }
+
+    .social-link,
+    .social-link-premium {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* ========== Form Inputs ========== */
+    .form-input,
+    .form-textarea {
+        font-size: 16px;
+        /* Prevents iOS zoom */
+        min-height: 52px;
+        padding: var(--space-4) var(--space-5);
+    }
+
+    /* ========== Premium Footer Mobile ========== */
+    .footer-premium {
+        padding-top: var(--space-12);
+        padding-bottom: var(--space-8);
+    }
+
+    .footer-big-text {
+        font-size: 1.5rem;
+        opacity: 0.03;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: var(--space-8);
+        text-align: center;
+    }
+
+    .footer-brand-premium {
+        align-items: center;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+
+    .footer-social-premium {
+        justify-content: center;
+    }
+
+    .footer-bottom-premium {
+        flex-direction: column;
+        gap: var(--space-4);
+        text-align: center;
+    }
+
+    .footer-contact-card,
+    .footer-director-card {
+        min-width: auto;
+        width: 100%;
+    }
+
+    /* ========== CTA Sections ========== */
+    .cta-section {
+        padding: var(--space-12) var(--space-4);
+    }
+
+    .cta-title {
+        font-size: var(--text-2xl);
+    }
+
+    .cta-subtitle {
+        font-size: var(--text-base);
+    }
+
+    /* ========== Cards Grid ========== */
+    .services-grid,
+    .trust-grid {
+        gap: var(--space-6);
+    }
+
+    .service-card,
+    .trust-card {
+        padding: var(--space-6);
+    }
+
+    /* ========== Page Headers ========== */
+    .page-header {
+        padding-top: calc(var(--space-20) + 60px);
+        padding-bottom: var(--space-12);
+    }
+
+    .page-title {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* ========== Extra Small Devices ========== */
+@media (max-width: 479px) {
+
+    .hero-gradient-orb-1,
+    .hero-gradient-orb-2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-gradient-orb-3 {
+        display: none;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-contact-cards {
+        flex-direction: column;
+    }
+}
+
+/* ========== Touch Device Animation Overrides ========== */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Disable hover-dependent animations */
+    .btn::before {
+        display: none;
+    }
+
+    .service-card:hover .service-icon,
+    .trust-card:hover .trust-title,
+    .service-card:hover .service-title {
+        transform: none;
+        color: inherit;
+    }
+
+    /* Disable card 3D tilt (handled by JS) */
+    .service-card,
+    .trust-card {
+        will-change: auto;
+    }
+
+    /* Simplify button shadows */
+    .btn-primary {
+        box-shadow: 0 4px 15px rgba(212, 168, 83, 0.2);
+    }
+
+    .btn-primary:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 10px rgba(212, 168, 83, 0.15);
+    }
+}
+
+/* ========== Reduced Motion Preference ========== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero-gradient-mesh,
+    .hero-gradient-orb,
+    .footer-orb {
+        animation: none !important;
+    }
+}
+
+/* ========== Landscape Mobile ========== */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding-top: var(--space-20);
+        padding-bottom: var(--space-12);
+    }
+
+    .hero-content {
+        max-width: 70%;
+    }
+}

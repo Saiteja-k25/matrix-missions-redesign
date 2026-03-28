@@ -1,0 +1,381 @@
+/* =============================================
+   MATRIX MISSIONS - GSAP Premium Animations
+   ScrollTrigger + Lenis Smooth Scroll
+   ============================================= */
+
+/* ========== Lenis Smooth Scroll Base ========== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ========== GSAP Animation States ========== */
+.gsap-hidden {
+  visibility: hidden;
+}
+
+/* Split text characters */
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.line {
+  overflow: hidden;
+}
+
+/* ========== Hero Enhancements ========== */
+.hero-title .char {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.hero-subtitle-wrap {
+  overflow: hidden;
+}
+
+/* ========== Parallax Layers ========== */
+.parallax-layer {
+  will-change: transform;
+}
+
+.parallax-slow {
+  --parallax-speed: 0.3;
+}
+
+.parallax-medium {
+  --parallax-speed: 0.5;
+}
+
+.parallax-fast {
+  --parallax-speed: 0.8;
+}
+
+/* ========== 3D Card Effects ========== */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d-inner {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+.card-3d-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card-3d:hover .card-3d-shine {
+  opacity: 1;
+}
+
+/* ========== Magnetic Button ========== */
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.magnetic-btn-inner {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ========== Reveal Animations ========== */
+.reveal-up {
+  clip-path: inset(100% 0 0 0);
+}
+
+.reveal-down {
+  clip-path: inset(0 0 100% 0);
+}
+
+.reveal-left {
+  clip-path: inset(0 100% 0 0);
+}
+
+.reveal-right {
+  clip-path: inset(0 0 0 100%);
+}
+
+.reveal-center {
+  clip-path: inset(50% 0 50% 0);
+}
+
+.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ========== Scrub Animations ========== */
+.scrub-scale {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scrub-rotate {
+  transform: none;
+  opacity: 1;
+}
+
+.scrub-slide-left {
+  transform: none;
+  opacity: 1;
+}
+
+.scrub-slide-right {
+  transform: none;
+  opacity: 1;
+}
+
+/* ========== Counter Animation ========== */
+.counter-number {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 2ch;
+}
+
+/* ========== Marquee Effect ========== */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ========== Glow Effects ========== */
+.glow-gold {
+  filter: drop-shadow(0 0 20px rgba(212, 168, 83, 0.4));
+}
+
+.glow-text {
+  text-shadow: 0 0 40px rgba(212, 168, 83, 0.5);
+}
+
+/* ========== Scroll Progress ========== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform-origin: left;
+  z-index: var(--z-tooltip);
+}
+
+/* ========== Cursor Follower ========== */
+.cursor-follower {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-tooltip);
+  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-follower.hovering {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(212, 168, 83, 0.5);
+  background: rgba(212, 168, 83, 0.1);
+}
+
+/* ========== Section Transitions ========== */
+.section-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-pinned {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Image Reveals ========== */
+.img-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-primary);
+  transform-origin: left;
+}
+
+.img-reveal img {
+  transform: scale(1.3);
+  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.img-reveal.revealed img {
+  transform: scale(1);
+}
+
+/* ========== Stagger Grid ========== */
+.stagger-grid>* {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========== Loading Screen ========== */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: var(--dark-primary);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-logo {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.loader-progress {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--accent-primary);
+  letter-spacing: var(--tracking-widest);
+}
+
+/* ========== Enhanced Hero BG ========== */
+.hero-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.hero-gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.4) 0%, transparent 70%);
+  top: -20%;
+  right: -10%;
+}
+
+.hero-gradient-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(201, 149, 44, 0.3) 0%, transparent 70%);
+  bottom: -10%;
+  left: -5%;
+}
+
+.hero-gradient-orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.2) 0%, transparent 70%);
+  top: 40%;
+  left: 30%;
+}
+
+/* ========== Text Visibility Safety Net ========== */
+/* Ensure all text content is visible on non-hero sections */
+/* GSAP will override these via inline styles for animations */
+:not(.hero)>.section-header h1,
+:not(.hero)>.section-header h2,
+:not(.hero)>.section-header h3,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+li,
+.section-label,
+.section-title,
+.section-subtitle,
+.service-title,
+.service-description,
+.trust-title,
+.trust-description,
+.cta-title,
+.cta-subtitle,
+.page-header-content,
+.page-header-content *,
+.policy-content,
+.policy-content *,
+.footer-simple,
+.footer-simple * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Allow hero elements to still be animated by GSAP */
+.hero .hero-title,
+.hero .hero-subtitle,
+.hero .hero-cta,
+.hero .hero-badge,
+.hero .intro-logo,
+.hero .intro-logo-container,
+.hero .hero-gradient-mesh,
+.hero .hero-gradient-orb,
+.hero .hero-trading-line,
+.hero .hero-particles {
+  opacity: unset !important;
+  visibility: unset !important;
+}

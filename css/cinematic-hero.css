@@ -1,0 +1,799 @@
+/* =============================================
+   MATRIX MISSIONS - Cinematic Hero Styles
+   Premium, slow, confident animations
+   ============================================= */
+
+/* ========== Cinematic Hero Container ========== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Static Gradient Glow - Same on ALL screen sizes */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 50%, rgba(0,255,150,0.15), transparent 60%),
+        radial-gradient(circle at 70% 50%, rgba(255,200,0,0.12), transparent 60%);
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,255,150,0.08), transparent 70%);
+    z-index: 0;
+}
+
+/* ========== Abstract Motion Background ========== */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Intro Logo Reveal */
+.intro-logo-container {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #050508;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+}
+
+.intro-logo {
+    width: 150px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 20px rgba(212, 168, 83, 0.4));
+}
+
+/* Dark Overlay with Cinematic Gradient & Noise */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        /* Subtle Dark Overlay (35%) */
+        rgba(0, 0, 0, 0.35),
+        /* Cinematic Gradient (Transparent Top -> 60% Bottom) */
+        linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+/* Trading Line Overlay */
+.hero-trading-line {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.hero-trading-line svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 20%;
+    animation: tradingLineFloat 10s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(212, 168, 83, 0.5));
+}
+
+@keyframes tradingLineFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scaleY(1.1);
+    }
+}
+
+/* Floating Particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.1;
+    /* Very low opacity */
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Light Sweep Effect */
+.hero-light-sweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%);
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 3;
+    animation: lightSweep 8s ease-in-out infinite;
+    mix-blend-mode: overlay;
+}
+
+@keyframes lightSweep {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+/* ========== Cinematic Logo Effects ========== */
+
+/* 1. Electric Glow (Keyframes) */
+@keyframes electricGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 2px rgba(0, 242, 255, 0.2)) drop-shadow(0 0 5px rgba(212, 168, 83, 0.1));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.6)) drop-shadow(0 0 10px rgba(212, 168, 83, 0.4));
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    3% {
+        opacity: 0.8;
+    }
+
+    6% {
+        opacity: 1;
+    }
+
+    7% {
+        opacity: 0.8;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    9% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    11% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 3. Navbar & Footer Logo - Power Effect */
+.navbar-logo-text img,
+.footer-logo-simple {
+    position: relative;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Heartbeat Pulse every 10s */
+    animation: logoHeartbeat 10s ease-in-out infinite;
+    /* Subtle Electric Glow */
+    filter: drop-shadow(0 0 2px rgba(212, 168, 83, 0.2));
+}
+
+.navbar-logo-text img:hover,
+.footer-logo-simple:hover {
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.8)) drop-shadow(0 0 15px rgba(212, 168, 83, 0.6));
+    transform: scale(1.05);
+    /* Slight growth */
+}
+
+/* 4. Laser Sweep Effect (One-time flash) */
+.logo-wrapper.logo-laser-sweep {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    /* Ensure wrapper respects sizing */
+}
+
+.logo-wrapper.logo-laser-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 242, 255, 0.8), transparent);
+    transform: skewX(-25deg);
+    animation: laserScan 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    /* Single fast scan */
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Periodic Light Sweep (Every 6s) */
+.logo-wrapper.logo-periodic-sweep {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.logo-wrapper.logo-periodic-sweep::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    animation: periodicScan 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes logoHeartbeat {
+
+    0%,
+    90%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(212, 168, 83, 0.2));
+    }
+
+    92% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.5));
+    }
+
+    94% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(212, 168, 83, 0.2));
+    }
+
+    96% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.5));
+    }
+
+    98% {
+        transform: scale(1);
+    }
+}
+
+@keyframes laserScan {
+    0% {
+        left: -150%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+@keyframes periodicScan {
+
+    0%,
+    90% {
+        left: -150%;
+        opacity: 0;
+    }
+
+    92% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 150%;
+        opacity: 0;
+    }
+}
+
+/* Text Gradient Gold */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #fff 0%, #d4a853 50%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+/* Soft Glow behind gold text */
+.text-gradient-gold::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.2) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(10px);
+}
+
+/* Animated gradient mesh */
+.hero-gradient-mesh {
+    position: absolute;
+    inset: -50%;
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(212, 168, 83, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(184, 134, 11, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 30% at 50% 80%, rgba(201, 149, 44, 0.08) 0%, transparent 50%);
+    animation: meshFloat 25s ease-in-out infinite;
+    will-change: transform;
+}
+
+@keyframes meshFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translate(2%, -3%) rotate(1deg) scale(1.02);
+    }
+
+    50% {
+        transform: translate(-1%, 2%) rotate(-0.5deg) scale(1.01);
+    }
+
+    75% {
+        transform: translate(-2%, -1%) rotate(0.5deg) scale(1.03);
+    }
+}
+
+/* Subtle noise texture overlay */
+.hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    /* Reduced opacity */
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 2;
+}
+
+/* Vignette effect */
+.hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at center, transparent 0%, rgba(5, 5, 8, 0.7) 100%);
+    pointer-events: none;
+}
+
+/* Enhanced gradient orbs with slower animation */
+.hero-gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0;
+    will-change: transform, opacity;
+    transition: opacity 2s ease;
+}
+
+.hero-gradient-orb-1 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(212, 168, 83, 0.25) 0%, transparent 70%);
+    top: -30%;
+    right: -20%;
+}
+
+.hero-gradient-orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 149, 44, 0.2) 0%, transparent 70%);
+    bottom: -20%;
+    left: -15%;
+}
+
+.hero-gradient-orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(184, 134, 11, 0.15) 0%, transparent 70%);
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ambient particles */
+.hero-ambient-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(212, 168, 83, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+/* ========== Hero Content ========== */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 var(--space-6);
+}
+
+/* Badge - initially hidden */
+/* Badge - Cinematic Floating Text */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-8);
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    animation: badgeFloat 8s ease-in-out infinite;
+    position: relative;
+
+    /* Gradient Text */
+    background: linear-gradient(90deg, var(--accent-primary) 0%, #fff 50%, var(--accent-primary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(212, 168, 83, 0.4);
+    animation: textShine 5s linear infinite, badgeFloat 8s ease-in-out infinite;
+}
+
+/* Animated Underline */
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    animation: underlineReveal 1.5s ease-out 1s forwards;
+}
+
+.hero-badge-dot {
+    /* Hidden for this style or made very subtle */
+    width: 4px;
+    height: 4px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-primary);
+    opacity: 0.8;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes underlineReveal {
+    to {
+        opacity: 0.5;
+        transform: scaleX(0.5);
+    }
+}
+
+@keyframes badgeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes signalPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 8px #00f2ff;
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+        box-shadow: 0 0 2px #00f2ff;
+    }
+}
+
+@keyframes badgeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 0 15px rgba(212, 168, 83, 0.2), 0 0 5px rgba(0, 242, 255, 0.2);
+    }
+
+    50% {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(212, 168, 83, 0.3), 0 0 10px rgba(0, 242, 255, 0.3);
+    }
+}
+
+/* Title - cinematic reveal */
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: var(--weight-bold);
+    line-height: 1.1;
+    color: var(--text-dark-primary);
+    margin-bottom: var(--space-8);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.hero-title .highlight {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Split text for char animation */
+.hero-title .word {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.hero-title .char {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* Subtitle - fade in after title */
+.hero-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-dark-secondary);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto var(--space-10);
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+}
+
+/* CTA Buttons */
+.hero-cta {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+}
+
+/* Premium CTA Button Hover */
+.hero-cta .btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-cta .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%, transparent 100%);
+    transform: translateX(-100%) skewX(-15deg);
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-cta .btn-primary:hover::before {
+    transform: translateX(100%) skewX(-15deg);
+}
+
+.hero-cta .btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 40px rgba(212, 168, 83, 0.3),
+        0 0 60px rgba(212, 168, 83, 0.2);
+}
+
+.hero-cta .btn-outline-light {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-cta .btn-outline-light:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ========== Scroll Indicator ========== */
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    opacity: 0;
+    will-change: opacity;
+}
+
+.scroll-indicator-text {
+    font-size: var(--text-xs);
+    color: var(--text-dark-muted);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+}
+
+.scroll-indicator-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent-primary), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scaleY(0.7);
+    }
+}
+
+/* ========== Depth Layers for Parallax ========== */
+.hero-depth-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-depth-layer-1 {
+    z-index: 1;
+}
+
+.hero-depth-layer-2 {
+    z-index: 2;
+}
+
+.hero-depth-layer-3 {
+    z-index: 3;
+}
+
+/* Floating geometric shapes for depth */
+.hero-shape {
+    position: absolute;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.hero-shape-1 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(212, 168, 83, 0.1);
+    border-radius: 50%;
+    top: 20%;
+    right: 15%;
+}
+
+.hero-shape-2 {
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(212, 168, 83, 0.08);
+    top: 60%;
+    left: 10%;
+    transform: rotate(45deg);
+}
+
+.hero-shape-3 {
+    width: 80px;
+    height: 80px;
+    background: rgba(212, 168, 83, 0.03);
+    border-radius: 50%;
+    top: 30%;
+    left: 20%;
+}
+
+/* Mobile/Tablet Video Optimization */
+@media (max-width: 1024px) {
+    .hero-gradient-orb-1 {
+        width: 400px;
+        height: 400px;
+    }
+
+    .hero-gradient-orb-2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-gradient-orb-3 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .hero-shape {
+        display: none;
+    }
+}

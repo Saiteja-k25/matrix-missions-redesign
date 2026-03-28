@@ -1,0 +1,382 @@
+/* =============================================
+   MATRIX MISSIONS - Premium Micro-Interactions
+   Soft, elegant hover effects and transitions
+   ============================================= */
+
+/* ========== Premium Timing Variables ========== */
+:root {
+    --micro-duration: 0.4s;
+    --micro-ease: cubic-bezier(0.23, 1, 0.32, 1);
+    --micro-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ========== Button Micro-Interactions ========== */
+
+/* Primary Button - Soft glow lift */
+.btn-primary {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease),
+        background var(--micro-duration) var(--micro-ease);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 30px rgba(212, 168, 83, 0.35),
+        0 0 0 1px rgba(212, 168, 83, 0.1);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow:
+        0 5px 20px rgba(212, 168, 83, 0.25);
+    transition-duration: 0.1s;
+}
+
+/* Secondary Button - Border glow */
+.btn-secondary {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        border-color var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-primary);
+    background-color: rgba(212, 168, 83, 0.08);
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.15);
+}
+
+/* Outline Light Button */
+.btn-outline-light {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        border-color var(--micro-duration) var(--micro-ease),
+        color var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Button Icon Animation */
+.btn .icon,
+.btn svg {
+    transition: transform var(--micro-duration) var(--micro-ease);
+}
+
+.btn:hover .icon,
+.btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* ========== Card Micro-Interactions ========== */
+
+/* Service Cards - Soft elevation */
+.service-card {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease),
+        border-color var(--micro-duration) var(--micro-ease);
+    will-change: transform;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(212, 168, 83, 0.1);
+    border-color: rgba(212, 168, 83, 0.2);
+}
+
+/* Service Icon - Subtle pulse */
+.service-card .service-icon {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.08);
+    background-color: rgba(212, 168, 83, 0.2);
+}
+
+/* Trust Cards - 3D tilt feel */
+.trust-card {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease),
+        border-color var(--micro-duration) var(--micro-ease);
+    will-change: transform;
+}
+
+.trust-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(212, 168, 83, 0.08);
+    border-color: rgba(212, 168, 83, 0.15);
+}
+
+/* Generic Cards */
+.card {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease),
+        border-color var(--micro-duration) var(--micro-ease);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(212, 168, 83, 0.1);
+}
+
+/* ========== Navigation Micro-Interactions ========== */
+
+/* Nav Links - Elegant underline */
+.nav-link {
+    position: relative;
+    transition: color var(--micro-duration) var(--micro-ease);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    transition:
+        width var(--micro-duration) var(--micro-ease),
+        left var(--micro-duration) var(--micro-ease);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Nav link subtle lift on hover */
+.nav-link:hover {
+    color: var(--text-dark-primary);
+}
+
+/* ========== Footer Link Interactions ========== */
+
+.footer-link-premium {
+    position: relative;
+    transition:
+        color var(--micro-duration) var(--micro-ease),
+        transform var(--micro-duration) var(--micro-ease);
+}
+
+.footer-link-premium:hover {
+    color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
+.footer-legal-link {
+    transition:
+        color var(--micro-duration) var(--micro-ease),
+        opacity var(--micro-duration) var(--micro-ease);
+}
+
+.footer-legal-link:hover {
+    color: var(--text-dark-primary);
+    opacity: 1;
+}
+
+/* ========== Social Icons ========== */
+
+.social-link,
+.social-link-premium {
+    transition:
+        transform var(--micro-duration) var(--micro-bounce),
+        background-color var(--micro-duration) var(--micro-ease),
+        color var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease);
+}
+
+.social-link:hover,
+.social-link-premium:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(212, 168, 83, 0.25);
+}
+
+/* ========== Icon Interactions ========== */
+
+.icon {
+    transition: transform var(--micro-duration) var(--micro-ease);
+}
+
+/* ========== Form Input Focus ========== */
+
+.form-input,
+.form-textarea {
+    transition:
+        border-color var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow:
+        0 0 0 4px rgba(212, 168, 83, 0.1),
+        0 4px 12px rgba(212, 168, 83, 0.08);
+}
+
+/* ========== Badge Hover ========== */
+
+.badge {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease);
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    background-color: rgba(212, 168, 83, 0.15);
+}
+
+/* ========== Logo Interaction ========== */
+
+.navbar-logo-text {
+    transition: transform var(--micro-duration) var(--micro-ease);
+}
+
+.navbar-logo-text:hover {
+    transform: scale(1.02);
+}
+
+.navbar-logo-text img {
+    transition:
+        filter var(--micro-duration) var(--micro-ease),
+        transform var(--micro-duration) var(--micro-ease);
+}
+
+.navbar-logo-text:hover img {
+    filter: brightness(1.1);
+}
+
+/* ========== CTA Section Button Glow ========== */
+
+.cta-section .btn-primary {
+    position: relative;
+}
+
+.cta-section .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--gradient-accent);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(15px);
+    transition: opacity var(--micro-duration) var(--micro-ease);
+}
+
+.cta-section .btn-primary:hover::after {
+    opacity: 0.5;
+}
+
+/* ========== Card Content Reveal ========== */
+
+.service-card .service-title,
+.trust-card .trust-title {
+    transition: color var(--micro-duration) var(--micro-ease);
+}
+
+.service-card:hover .service-title,
+.trust-card:hover .trust-title {
+    color: var(--accent-primary);
+}
+
+/* ========== Link Arrow Animation ========== */
+
+a[href] .icon-arrow,
+a[href] [class*="arrow"] {
+    transition: transform var(--micro-duration) var(--micro-ease);
+}
+
+a[href]:hover .icon-arrow,
+a[href]:hover [class*="arrow"] {
+    transform: translateX(5px);
+}
+
+/* ========== Scroll Indicator Pulse ========== */
+
+.scroll-indicator {
+    animation: scrollIndicatorPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollIndicatorPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* ========== Policy Nav Buttons ========== */
+
+.policy-nav a {
+    transition:
+        background-color var(--micro-duration) var(--micro-ease),
+        color var(--micro-duration) var(--micro-ease),
+        transform var(--micro-duration) var(--micro-ease),
+        box-shadow var(--micro-duration) var(--micro-ease);
+}
+
+.policy-nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 168, 83, 0.2);
+}
+
+/* ========== Mobile Menu Interactions ========== */
+
+.mobile-menu-toggle {
+    transition: transform var(--micro-duration) var(--micro-ease);
+}
+
+.mobile-menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.mobile-menu-toggle span {
+    transition:
+        transform var(--micro-duration) var(--micro-ease),
+        opacity var(--micro-duration) var(--micro-ease),
+        background-color var(--micro-duration) var(--micro-ease);
+}
+
+/* ========== Reduce Motion for Accessibility ========== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
